@@ -8,16 +8,16 @@ from .models import Lesson
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        exclude = 'id'
+        fields = '__all__'
 
 
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
-        exclude = 'id'
+        fields = '__all__'
 
 
 class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
-        exclude = 'id'
+        fields = '__all__'
