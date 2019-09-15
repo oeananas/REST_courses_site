@@ -34,7 +34,7 @@ class TeacherViewSet(viewsets.ModelViewSet):
     serializer_class = TeacherSerializer
 
     def list(self, request, *args, **kwargs):
-        queryset = Teacher.objects.filter(course_id=kwargs['course_pk'])
+        queryset = Course.objects.get(pk=kwargs['course_pk']).teachers
 
         page = self.paginate_queryset(queryset)
         if page is not None:

@@ -5,7 +5,6 @@ Courses site with RESTfull API
 ```bash
 pip3 install -r requirements.txt
 cd edu
-./manage.py makemigrations
 ./manage.py migrate
 ```
 # Usage
