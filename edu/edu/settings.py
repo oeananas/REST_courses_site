@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'graphene_django',
     'courses.apps.CoursesConfig',
     'account.apps.AccountConfig',
 ]
@@ -122,4 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL =  '/courses'
+LOGIN_REDIRECT_URL = '/courses'
+
+GRAPHENE = {
+    'SCHEMA': 'django_root.schema.schema'
+}
