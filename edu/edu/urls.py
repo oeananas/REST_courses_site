@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
     path('account/', include('account.urls')),
-    path('courses/', include('courses.urls')),
+    path('', include('courses.urls')),
 ]

@@ -20,8 +20,8 @@ class CustomNode(relay.Node):
         return id
 
     @staticmethod
-    def get_node_from_global_id(info, global_id, only_type=None):
-        model = getattr(Query,info.field_name).field_type._meta.model
+    def get_node_from_global_id(info, global_id, only_type=None, **kwargs):
+        model = getattr(Query, info.field_name).field_type._meta.model
         return model.objects.get(id=global_id)
 
 
@@ -66,7 +66,6 @@ class Query:
     course = graphene.Field(CourseType, id=graphene.Int(), title=graphene.String())
     lesson = graphene.Field(LessonType, id=graphene.Int(), title=graphene.String())
     teacher = graphene.Field(TeacherType, id=graphene.Int(), name=graphene.String())
-
 
     def resolve_course(self, info, **kwargs):
         if 'id' in kwargs:

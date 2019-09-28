@@ -1,3 +1,4 @@
+from django.views.generic import TemplateView
 from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import Course
@@ -6,6 +7,10 @@ from .models import Teacher
 from .serializers import CourseSerializer
 from .serializers import LessonSerializer
 from .serializers import TeacherSerializer
+
+
+class MainPageView(TemplateView):
+    template_name = 'courses/index.html'
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -17,7 +22,7 @@ class LessonViewSet(viewsets.ModelViewSet):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
 
-    def list(self, request, *args, **kwargs):
+    def course_list(self, request, *args, **kwargs):
         queryset = Lesson.objects.filter(course_id=kwargs['course_pk'])
 
         page = self.paginate_queryset(queryset)
@@ -33,7 +38,7 @@ class TeacherViewSet(viewsets.ModelViewSet):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
 
-    def list(self, request, *args, **kwargs):
+    def course_list(self, request, *args, **kwargs):
         queryset = Course.objects.get(pk=kwargs['course_pk']).teachers
 
         page = self.paginate_queryset(queryset)
