@@ -17,13 +17,13 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'courses' %}">Courses</a>
+          <a class="nav-link" href="{% url 'courses' %}" data-toggle="tooltip" title="click me">Courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'lessons' %}">Lessons</a>
+          <a class="nav-link" href="{% url 'lessons' %}" data-toggle="tooltip" title="click me">Lessons</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'teachers' %}">Teachers</a>
+          <a class="nav-link" href="{% url 'teachers' %}" data-toggle="tooltip" title="click me">Teachers</a>
         </li>
       </ul>
     </div>
@@ -33,10 +33,17 @@
 <!-- Full Page Image Header with Vertically Centered Content -->
 <header class="masthead">
   <div class="container h-100">
-    <div class="row h-100 align-items-center">
+    <div class="row h-100">
       <div class="col-12 text-center">
         <h1 class="main-h">Welcome to the best educational platform</h1>
         <p class="lead">A great opportunity to learn something new</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6"><h3 class="text-left"><span id="typing"></span></h3></div>
+            <div class="col-3"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
