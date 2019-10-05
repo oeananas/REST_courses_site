@@ -29,6 +29,7 @@ class Lesson(models.Model):
     description = models.TextField()
     teacher = models.ForeignKey(Teacher, related_name='lessons', on_delete=models.CASCADE)
     course = models.ForeignKey(Course, related_name='lessons', on_delete=models.CASCADE)
+    start_dt = models.DateTimeField(blank=True)
 
     objects = models.Manager()
 

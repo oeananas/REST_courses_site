@@ -11,7 +11,13 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class LessonSerializer(serializers.ModelSerializer):
+class LessonSerializer(serializers.Serializer):
+    title = serializers.CharField()
+    description = serializers.CharField()
+    teacher_name = serializers.CharField(required=False)
+    course_title = serializers.CharField(required=False)
+    start_dt = serializers.DateTimeField(format="%d.%m.%Y %H:%M")
+
     class Meta:
         model = Lesson
         fields = '__all__'

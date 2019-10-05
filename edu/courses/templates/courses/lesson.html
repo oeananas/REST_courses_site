@@ -1,0 +1,46 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block content %}
+<header class="masthead backgroundLesson">
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-12 text-center">
+        <h1 class="main-h">Timetable of course</h1>
+        <h3>The next lesson will begin in :</h3>
+        <div class="timer"><h3 id="timer"></h3></div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Teacher</th>
+    <th>Start</th>
+  </tr>
+  {% for lesson in data %}
+  <tr>
+    <td>{{ lesson.title }}</td>
+    <td>{{ lesson.description }}</td>
+    <td>{{ lesson.teacher_name }}</td>
+    {% if lesson.start_dt %}
+      <td class="start">{{ lesson.start_dt }}</td>
+    {% else %}
+      <td>unknown</td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
+
+{% block scrypt %}
+ <script>
+   let dt = $('.start').first().text().split()[0].split(/\.|\s/);
+   let date = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
+   CountDownTimer(date, 'timer')
+ </script>
+{% endblock %}

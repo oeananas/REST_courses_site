@@ -1,0 +1,33 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block content %}
+<header class="masthead backgroundCourse">
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-12 text-center">
+        <h1 class="main-h">Let's choose a course for your training</h1>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  {% for course in data %}
+  <tr>
+    <td>{{ course.title }}</td>
+    <td>{{ course.description }}</td>
+    <td>{{ course.price }} $</td>
+    <td><a href="{% url 'course_lessons' course_pk=course.id %}"><button class="btn btn-success">Timetable</button></a></td>
+    <td><a href="{% url 'course_teachers' course_pk=course.id %}"><button class="btn btn-warning">Teachers</button></a></td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

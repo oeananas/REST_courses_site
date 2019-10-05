@@ -2,36 +2,8 @@
 {% load static %}
 
 {% block content %}
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="{% url 'main' %}">EDU</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'main' %}">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'courses' %}" data-toggle="tooltip" title="click me">Courses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'lessons' %}" data-toggle="tooltip" title="click me">Lessons</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'teachers' %}" data-toggle="tooltip" title="click me">Teachers</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <!-- Full Page Image Header with Vertically Centered Content -->
-<header class="masthead">
+<header class="masthead backgroundMain">
   <div class="container h-100">
     <div class="row h-100">
       <div class="col-12 text-center">
