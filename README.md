@@ -11,3 +11,8 @@ cd edu
 ```bash
 ./manage.py runserver
 ```
+for using Celery you must have installed redis in the system.
+for starting celery:
+```bash
+celery -A edu worker -B
+```
