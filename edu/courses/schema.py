@@ -60,8 +60,8 @@ class TeacherType(DjangoObjectType):
 
 class Query:
     all_courses = DjangoFilterConnectionField(CourseType)
-    all_lessons = DjangoFilterConnectionField(CourseType)
-    all_teachers = DjangoFilterConnectionField(CourseType)
+    all_lessons = DjangoFilterConnectionField(LessonType)
+    all_teachers = DjangoFilterConnectionField(TeacherType)
 
     course = graphene.Field(CourseType, id=graphene.Int(), title=graphene.String())
     lesson = graphene.Field(LessonType, id=graphene.Int(), title=graphene.String())
